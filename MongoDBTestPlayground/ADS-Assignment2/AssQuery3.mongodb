@@ -1,0 +1,15 @@
+// 
+
+use('ADS-Assignment2');
+
+db.Embedding2.aggregate(
+  [
+    {$unwind:'$Departments'},
+    {$unwind:'$Departments.CourseOffer'},
+    {$match:{$or:[{'Departments.DeptID':'IS'},{'Departments.DeptID':'CS'}],"Departments.CourseOffer.Year":2021}},
+    {$project:{result:'$Departments.CourseOffer'}},
+    {$group:{_id:'result',result:{$addToSet:'$result'}}},
+    {$unset:'result.EnrolledStudent'}
+  ]
+)
+3

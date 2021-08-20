@@ -1,0 +1,142 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('ADS-Assignment2');
+
+// The drop() command destroys all data from a collection.
+// Make sure you run it against the correct database and collection.
+db.Embedding2.drop();
+
+// Insert a few documents into the sales collection.
+db.Embedding2.insertMany(
+    [
+        {
+        'Departments':[
+            {
+                "DeptID": "CS",
+                "DeptName": "Computer Science",
+                "Location": "Green Zone",
+                "CourseOffer":[
+                    {
+                        "CourseID": "CS101",
+                        "Title": "Introduction to Data Science",
+                        "Level": 6,
+                        "Year": 2021,
+                        "ClassSize": 40,
+                        "AvailablePlaces": 39,
+                        "EnrolledStudent":[
+                            {  
+                                "StudentID": "15101010",
+                                "StuName": "Chan Tai Man",
+                                "DOB": {
+                                "$date": "2001-08-10T00:00:00Z"
+                                },
+                                "Year": 2016,
+                                "EnrolDate": {
+                                    "$date": "2021-05-15T00:00:00Z"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "CourseID": "CS102",
+                        "Title": "Introduction to Data Science2",
+                        "Level": 6,
+                        "Year": 2021,
+                        "ClassSize": 40,
+                        "AvailablePlaces": 39,
+                        "EnrolledStudent":[
+                            {  
+                                "StudentID": "15101011",
+                                "StuName": "Chan Tai Man2",
+                                "DOB": {
+                                "$date": "2001-08-10T00:00:00Z"
+                                },
+                                "Year": 2016,
+                                "EnrolDate": {
+                                    "$date": "2021-05-15T00:00:00Z"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "CourseID": "CS101",
+                        "Title": "Introduction to Data Science",
+                        "Level": 6,
+                        "Year": 2022,
+                        "ClassSize": 40,
+                        "AvailablePlaces": 40,
+                        "EnrolledStudent":[]
+                    }
+                ]
+            },
+            ]
+        },
+                {
+        'Departments':[
+            {
+                "DeptID": "IS",
+                "DeptName": "Iomputer Science",
+                "Location": "Green Zone",
+                "CourseOffer":[
+                    {
+                        "CourseID": "IS101",
+                        "Title": "Introduction to Data ScienceIS",
+                        "Level": 6,
+                        "Year": 2021,
+                        "ClassSize": 40,
+                        "AvailablePlaces": 39,
+                        "EnrolledStudent":[
+                            {  
+                                "StudentID": "15101010",
+                                "StuName": "Chan Tai Man",
+                                "DOB": {
+                                "$date": "2001-08-10T00:00:00Z"
+                                },
+                                "Year": 2016,
+                                "EnrolDate": {
+                                    "$date": "2021-05-15T00:00:00Z"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "CourseID": "IS102",
+                        "Title": "Introduction to Data Science2IS",
+                        "Level": 6,
+                        "Year": 2021,
+                        "ClassSize": 40,
+                        "AvailablePlaces": 39,
+                        "EnrolledStudent":[
+                            {  
+                                "StudentID": "15101011",
+                                "StuName": "Chan Tai Man2",
+                                "DOB": {
+                                "$date": "2001-08-10T00:00:00Z"
+                                },
+                                "Year": 2016,
+                                "EnrolDate": {
+                                    "$date": "2021-05-15T00:00:00Z"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "CourseID": "IS101",
+                        "Title": "Introduction to Data ScienceIS",
+                        "Level": 6,
+                        "Year": 2022,
+                        "ClassSize": 40,
+                        "AvailablePlaces": 40,
+                        "EnrolledStudent":[]
+                    }
+                ]
+            },
+            ]
+        },
+    ]
+);
+
