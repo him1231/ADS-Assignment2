@@ -1,0 +1,24 @@
+use('ADS-Assignment2-DB2');
+
+db.Offers.drop();
+
+db.Offers.insertMany(
+    [
+        {
+            _id:1,
+            "DeptID": "CS",
+            "CourseID": "CS101",
+            "Year": 2021,
+            "ClassSize": 40,
+            "AvailablePlaces": 39,
+            DepartmentInfo: {
+                "DeptName": "Computer Science",
+                "Location": "Green Zone"
+            },
+            CourseInfo:{
+                "Title": "Introduction to Data Science",
+                "Level": 6
+            }
+        }
+    ]
+);

@@ -1,0 +1,15 @@
+use('ADS-Assignment2-DB1');
+
+db.Students.drop();
+
+db.Students.insertMany(
+  [
+    {
+        _id:1,
+        "StudentID": "15101010",
+        "StuName": "Chan Tai Man",
+        "DOB": "10/08/2001"
+    }
+  ]
+);
+

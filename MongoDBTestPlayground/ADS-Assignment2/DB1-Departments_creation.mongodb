@@ -1,0 +1,36 @@
+use('ADS-Assignment2-DB1');
+
+db.Departments.drop();
+
+db.Departments.insertMany(
+  [
+    {
+      _id:1,
+      "DeptID": "CS",
+      "DeptName": "Computer Science",
+      "Location": "Green Zone",
+      Courses: [
+        {
+          "CourseID": "CS101",
+          "Title": "Introduction to Data Science",
+          "Level": 6,
+          Offer: [
+            {
+              "Year": 2021,
+              "ClassSize": 40,
+              "AvailablePlaces": 39,
+              Enrolled: [
+                {
+                    "StudentID": "15101010",
+                    "Year": 2016,
+                    "EnrolDate": "15/05/2021"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+);
+

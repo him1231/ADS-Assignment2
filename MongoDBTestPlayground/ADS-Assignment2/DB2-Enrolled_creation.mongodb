@@ -1,0 +1,20 @@
+use('ADS-Assignment2-DB2');
+
+db.Enrolled.drop();
+
+db.Enrolled.insertMany(
+    [
+        {
+            _id:1,
+            "StudentID": "15101010",
+            "Year": 2016,
+            "CourseID": "CS101",
+            "EnrolDate": "15/05/2021",
+            StudentInfo: {
+                "StudentID": "15101010",
+                "StuName": "Chan Tai Man",
+                "DOB": "10/08/2001"
+            }
+        }
+    ]
+);
