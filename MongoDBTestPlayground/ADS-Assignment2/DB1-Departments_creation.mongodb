@@ -2,10 +2,11 @@ use('ADS-Assignment2-DB1');
 
 db.Departments.drop();
 
+db.Departments.createIndex( { "DeptID": 1 }, { unique: true } )
+
 db.Departments.insertMany(
   [
     {
-      _id:1,
       "DeptID": "CS",
       "DeptName": "Computer Science",
       "Location": "Green Zone",
