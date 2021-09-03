@@ -36,7 +36,7 @@ function departments({
   if (location) match["Location"] = location;
   if (courseID) match["Courses.CourseID"] = courseID;
   if (title) match["Courses.Title"] = title;
-  if (level) match["Courses.Level"] = level;
+  if (level) match["Courses.Level"] = Number(level);
   if (offerYear) match["Courses.Offer.Year"] = Number(offerYear);
   if (studentID) match["Courses.Offer.Enrolled.StudentID"] = Number(studentID);
   if (studentYear) match["Courses.Offer.Enrolled.Year"] = Number(studentYear);
@@ -165,6 +165,8 @@ function coursesInfo({ departmentID, year, courseID = undefined }) {
     { $unset: "result.Offer" },
   ];
 
+  console.log("query", JSON.stringify(query));
+
   return aggregate("ADS-Assignment2-DB1", "Departments", query);
 }
 
@@ -202,6 +204,8 @@ function popularCourse({ departmentID = undefined, year = undefined }) {
     },
   ];
 
+  console.log("query", JSON.stringify(query));
+
   return aggregate("ADS-Assignment2-DB1", "Departments", query);
 }
 
@@ -237,6 +241,8 @@ function enrolledStudentCount({
       },
     },
   ];
+
+  console.log("query", JSON.stringify(query));
 
   return aggregate("ADS-Assignment2-DB1", "Departments", query);
 }
@@ -274,6 +280,8 @@ function studentEnrolledCourses({ studentName, departmentID, year }) {
       },
     },
   ];
+
+  console.log("query", JSON.stringify(query));
 
   return aggregate("ADS-Assignment2-DB1", "Departments", query);
 }

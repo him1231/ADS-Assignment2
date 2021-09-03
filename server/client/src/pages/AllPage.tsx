@@ -38,93 +38,95 @@ function AllPage() {
   return (
     <>
       <table>
-        <tr>
-          <td>
-            Department ID
-            <input
-              value={departmentID}
-              onChange={(evt) => {
-                setDepartmentID(evt.target.value);
-              }}
-            />
-          </td>
-          <td>
-            Department Name
-            <input
-              value={departmentName}
-              onChange={(evt) => {
-                setDepartmentName(evt.target.value);
-              }}
-            />
-          </td>
-          <td>
-            Location
-            <input
-              value={location}
-              onChange={(evt) => {
-                setLocation(evt.target.value);
-              }}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Course ID
-            <input
-              value={courseID}
-              onChange={(evt) => {
-                setCourseID(evt.target.value);
-              }}
-            />
-          </td>
-          <td>
-            Course Title
-            <input
-              value={title}
-              onChange={(evt) => {
-                setTitle(evt.target.value);
-              }}
-            />
-          </td>
-          <td>
-            Level
-            <input
-              value={level}
-              onChange={(evt) => {
-                setLevel(evt.target.value);
-              }}
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Offer Year
-            <input
-              value={offerYear}
-              onChange={(evt) => {
-                setOfferYear(evt.target.value);
-              }}
-            />
-          </td>
-          <td>
-            Student ID
-            <input
-              value={studentID}
-              onChange={(evt) => {
-                setStudentID(evt.target.value);
-              }}
-            />
-          </td>
-          <td>
-            Student Year
-            <input
-              value={studentYear}
-              onChange={(evt) => {
-                setStudentYear(evt.target.value);
-              }}
-            />
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>
+              Department ID
+              <input
+                value={departmentID}
+                onChange={(evt) => {
+                  setDepartmentID(evt.target.value);
+                }}
+              />
+            </td>
+            <td>
+              Department Name
+              <input
+                value={departmentName}
+                onChange={(evt) => {
+                  setDepartmentName(evt.target.value);
+                }}
+              />
+            </td>
+            <td>
+              Location
+              <input
+                value={location}
+                onChange={(evt) => {
+                  setLocation(evt.target.value);
+                }}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Course ID
+              <input
+                value={courseID}
+                onChange={(evt) => {
+                  setCourseID(evt.target.value);
+                }}
+              />
+            </td>
+            <td>
+              Course Title
+              <input
+                value={title}
+                onChange={(evt) => {
+                  setTitle(evt.target.value);
+                }}
+              />
+            </td>
+            <td>
+              Level
+              <input
+                value={level}
+                onChange={(evt) => {
+                  setLevel(evt.target.value);
+                }}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Offer Year
+              <input
+                value={offerYear}
+                onChange={(evt) => {
+                  setOfferYear(evt.target.value);
+                }}
+              />
+            </td>
+            <td>
+              Student ID
+              <input
+                value={studentID}
+                onChange={(evt) => {
+                  setStudentID(evt.target.value);
+                }}
+              />
+            </td>
+            <td>
+              Student Year
+              <input
+                value={studentYear}
+                onChange={(evt) => {
+                  setStudentYear(evt.target.value);
+                }}
+              />
+            </td>
+          </tr>
+        </tbody>
       </table>
       {/* Search Deep
       <input
