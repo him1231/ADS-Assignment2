@@ -1,50 +1,65 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
 function switchFunction(functionName) {
-  const connectDatabase = require('../public/javascripts/connectDatabase');
+  const connectDatabase = require("../public/javascripts/connectDatabase");
 
   switch (functionName) {
-    case 'departments':
+    case "departments":
       return connectDatabase.departments;
-    case 'offer':
+    case "courses":
+      return connectDatabase.courses;
+    case "offer":
       return connectDatabase.offer;
-    case 'studentsCount':
+    case "students":
+      return connectDatabase.students;
+
+    case "studentsCount":
       return connectDatabase.studentsCount;
-    case 'studentsFind':
+    case "studentsFind":
       return connectDatabase.studentsFind;
-    case 'coursesTitle':
+    case "coursesTitle":
       return connectDatabase.coursesTitle;
-    case 'coursesInfo':
+    case "coursesInfo":
       return connectDatabase.coursesInfo;
-    case 'popularCourse':
+    case "popularCourse":
       return connectDatabase.popularCourse;
-    case 'enrolledStudentCount':
+    case "enrolledStudentCount":
       return connectDatabase.enrolledStudentCount;
-    case 'studentEnrolledCourses':
+    case "studentEnrolledCourses":
       return connectDatabase.studentEnrolledCourses;
-    case 'addDepartment':
+
+    case "addDepartment":
       return connectDatabase.addDepartment;
-    case 'addCourse':
+    case "addCourse":
       return connectDatabase.addCourse;
-    case 'addOffer':
+    case "addOffer":
       return connectDatabase.addOffer;
-    case 'addEnrolled':
+    case "addEnrolled":
       return connectDatabase.addEnrolled;
-    case 'updateDepartment':
+    case "addStudet":
+      return connectDatabase.addStudet;
+
+    case "updateDepartment":
       return connectDatabase.updateDepartment;
-    case 'updateCourses':
+    case "updateCourses":
       return connectDatabase.updateCourses;
-    case 'updateOffer':
+    case "updateOffer":
       return connectDatabase.updateOffer;
-    case 'deleteDepartment':
+    case "updateStudent":
+      return connectDatabase.updateStudent;
+
+    case "deleteDepartment":
       return connectDatabase.deleteDepartment;
-    case 'deleteCourse':
+    case "deleteCourse":
       return connectDatabase.deleteCourse;
-    case 'deleteOffer':
+    case "deleteOffer":
       return connectDatabase.deleteOffer;
-    case 'deleteEnrolled':
+    case "deleteEnrolled":
       return connectDatabase.deleteEnrolled;
+    case "deleteStudent":
+      return connectDatabase.deleteStudent;
+
     default:
       return () => {
         Promise.resolve({
@@ -56,8 +71,8 @@ function switchFunction(functionName) {
 }
 
 /* GET home page. */
-router.get('/:function', function (req, res, next) {
-  const connectDatabase = require('../public/javascripts/connectDatabase');
+router.get("/:function", function (req, res, next) {
+  const connectDatabase = require("../public/javascripts/connectDatabase");
 
   switchFunction(req.params.function)(req.query)
     .then((result) => {
