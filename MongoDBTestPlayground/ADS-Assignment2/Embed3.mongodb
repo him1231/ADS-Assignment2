@@ -289,3 +289,26 @@ db.Embedding3.aggregate(
     {$group:{_id:'List the courses offered by the CS department that the student Chan Tai Man has enrolled in 2021',result:{$addToSet:'$result'}}},
   ]
 )
+
+use('ADS-Assignment2-DB1');
+db.Departments.aggregate(
+  [
+    { $unwind: "$Courses" },
+    {
+      $lookup: {
+        from: "Students",
+        localField: "Courses.Offer.Enrolled.StudentID",
+        foreignField: "StudentID",
+        as: "Students",
+      },
+    },
+    {$match: {'DeptID': 'CS',"Students.StuName": "Chan Tai Man", "Courses.Offer.Year": 2021}},
+    { $project: { result: "$Courses.CourseID" } },
+    {
+      $group: {
+        _id: 'List the courses',
+        result: { $addToSet: "$result" },
+      },
+    },
+  ]
+)

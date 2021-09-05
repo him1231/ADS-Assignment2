@@ -12,4 +12,3 @@ db.Embedding2.aggregate(
     {$unset:'result.EnrolledStudent'}
   ]
 )
-3

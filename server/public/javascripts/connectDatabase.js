@@ -165,8 +165,6 @@ function coursesInfo({ departmentID, year, courseID = undefined }) {
     { $unset: "result.Offer" },
   ];
 
-  console.log("query", JSON.stringify(query));
-
   return aggregate("ADS-Assignment2-DB1", "Departments", query);
 }
 
@@ -204,8 +202,6 @@ function popularCourse({ departmentID = undefined, year = undefined }) {
     },
   ];
 
-  console.log("query", JSON.stringify(query));
-
   return aggregate("ADS-Assignment2-DB1", "Departments", query);
 }
 
@@ -241,8 +237,6 @@ function enrolledStudentCount({
       },
     },
   ];
-
-  console.log("query", JSON.stringify(query));
 
   return aggregate("ADS-Assignment2-DB1", "Departments", query);
 }
@@ -280,8 +274,6 @@ function studentEnrolledCourses({ studentName, departmentID, year }) {
       },
     },
   ];
-
-  console.log("query", JSON.stringify(query));
 
   return aggregate("ADS-Assignment2-DB1", "Departments", query);
 }
@@ -557,18 +549,30 @@ function updateOffer({ courseID, offerYear, classSize }) {
       const offer = result[0];
 
       const filter = {
-        "Courses.CourseID": courseID,
-        "Courses.Offer.Year": Number(offerYear),
+        "Courses.CourseID": offer.CourseID,
+        "Courses.Offer.Year": offer.Year,
       };
 
       const update = {};
       const set = {};
 
-      if (classSize)
+      if (classSize !== undefined) {
         set["Courses.$[i].Offer.$[j].ClassSize"] = Number(classSize);
-      if (classSize)
+      }
+
+      console.log("Number(classSize): ", Number(classSize));
+
+      if (classSize !== undefined) {
+        let currentSize = 0;
+
+        if (offer && offer.Enrolled && Array.isArray(offer.Enrolled)) {
+          currentSize = offer.Enrolled.length;
+        }
+
         set["Courses.$[i].Offer.$[j].AvailablePlaces"] =
-          classSize - offer.Enrolled.length;
+          Number(classSize) - currentSize;
+      }
+
       update["$set"] = set;
 
       const options = {

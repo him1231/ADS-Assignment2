@@ -48,12 +48,8 @@ function UpdatePage() {
 
   function updateCourse() {
     setUpdateCourseMessage("");
-    if (departmentID === "" || courseID === "") {
-      setUpdateCourseMessage(
-        "empty" +
-          (departmentID === "" ? " departmentID" : " ") +
-          (courseID === "" ? " courseID" : " ")
-      );
+    if (courseID === "") {
+      setUpdateCourseMessage("empty" + (courseID === "" ? " courseID" : " "));
       return;
     }
     updateCourseAPI({ courseID, title, level }).then(

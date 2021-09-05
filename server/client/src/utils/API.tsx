@@ -243,7 +243,7 @@ interface updateCourseProps {
 }
 
 export async function updateCourse(props: updateCourseProps) {
-  const baseUrl = "/database/updateCourse?";
+  const baseUrl = "/database/updateCourses?";
   const param = props;
   const result = await callAPI(baseUrl, param);
   return result;
@@ -332,23 +332,3 @@ export async function deleteStudent(props: deleteStudetProps) {
   const result = await callAPI(baseUrl, param);
   return result;
 }
-
-const a = [
-  { $unwind: "$Courses" },
-  { $unwind: "$Courses.Offer" },
-  { $match: { $or: [{ DeptID: "CS" }], "Courses.Offer.Year": 2021 } },
-  {
-    $project: {
-      result: {
-        CourseID: "$Courses.CourseID",
-        count: { $size: "$Courses.Offer.Enrolled" },
-      },
-    },
-  },
-  {
-    $group: {
-      _id: "List the numbers of students for each course, who have enrolled the course offered by CS in 2021",
-      result: { $addToSet: "$result" },
-    },
-  },
-];

@@ -37,8 +37,8 @@ function switchFunction(functionName) {
       return connectDatabase.addOffer;
     case "addEnrolled":
       return connectDatabase.addEnrolled;
-    case "addStudet":
-      return connectDatabase.addStudet;
+    case "addStudent":
+      return connectDatabase.addStudent;
 
     case "updateDepartment":
       return connectDatabase.updateDepartment;
